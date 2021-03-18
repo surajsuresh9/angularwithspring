@@ -1,0 +1,46 @@
+<div class="container" style="text-align:center ;">
+    <h1>Update Employee</h1>
+</div>
+    <div class="conatiner">
+        <div class="row">
+            <div class="col-sm-4">
+            </div>
+            <div class="col-sm-4">
+                
+                
+                <form #editForm='ngForm'>
+                    <div class="form-group">
+                        <b><label for="exampleFormControlInput1">ID</label></b>
+                        <input type="email" class="form-control" ngModel="{{editEmployee?.id}}" placeholder="Enter id of existing employee" name="id">
+                        <b><label for="exampleFormControlInput1">Name</label></b>
+                        <input type="email" class="form-control" ngModel="{{editEmployee?.name}}" placeholder="Enter name" name="name">
+                        <b><label for="exampleFormControlInput1">Address</label></b>
+                        <input type="email" class="form-control"  ngModel="{{editEmployee?.address}}" placeholder="Enter address" name="address">
+                    </div>
+                    <b><label>Gender</label></b>
+                    <div class="form-check">
+                        <input class="form-check-input" ngModel="{{editEmployee?.gender}}" type="radio" name="exampleRadios" id="exampleRadios1" value="M" checked name="gender">
+                        <label class="form-check-label" for="exampleRadios1">
+                            Male
+                        </label>
+                    </div>
+                    <div class="form-check">
+                        <input class="form-check-input" ngModel="{{editEmployee?.gender}}" type="radio" name="exampleRadios" id="exampleRadios2" value="F" name="gender">
+                        <label class="form-check-label" for="exampleRadios2">
+                            Female
+                        </label>
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleFormControlTextarea1"><b>Enter Comments:</b></label>
+            <textarea class="form-control" name="description" ngModel="{{editEmployee?.description}}" id="exampleFormControlTextarea1" rows="3"></textarea>
+        </div>
+        <br>
+        <button class="btn btn-success" (click)='onUpdateEmployee(editForm.value)'>Update</button>
+        <br>
+        <a routerLink="/"><button class="btn btn-primary" style="position: absolute;left: 48%;">Home</button></a>
+    </form>
+</div>
+<div class="col-sm-4">
+</div>
+</div>
+</div>

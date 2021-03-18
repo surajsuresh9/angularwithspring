@@ -1,0 +1,60 @@
+<div style="text-align:center"class="container" *ngIf="!hasRoute('addEmployee') && !hasRoute('updateEmployee')">
+  <div style="text-align:center">
+    <h4>
+      {{title}} List
+    </h4>
+  </div>
+  <br>
+  <div class="container">
+    <table class="table table-dark">
+      <thead>
+        <tr>
+          <th>Id</th>
+          <th>Name</th>
+          <th>Gender</th>
+          <th>Text Editor</th>
+          <th>Language</th>
+          <th>Address</th>
+          <th colspan="2"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let e of employees" >
+          <td>{{e.id}}</td>
+          <td>{{e.name}}</td>
+          <td>{{e.gender}}</td>
+          <td>
+            <tr *ngFor='let t of e.textEditors'>
+              <div *ngIf='e.textEditors.length!=0;'>
+                <td>{{t}}</td>
+              </div>
+              <!-- <div *ngIf='e.textEditors.length==0;'>
+                <td><button class="btn btn-info">Click to add Text Editors</button></td>
+              </div> -->
+            </tr>
+          </td>
+          <td>{{e.langauage}}</td>
+          <td>{{e.address}}</td>
+          <td><button class="btn btn-danger" (click)='ondeleteEmployee(e.id)'>Delete</button></td>
+        </tr>
+      </tbody>
+      </table>
+<br>
+<div class="container">
+<div class="row">
+  <div class="col-sm-6">
+    <a routerLink='/addEmployee'><button class="btn btn-success">Add Employee</button></a>
+  </div>
+  <div class="col-sm-6">
+    <a routerLink='/updateEmployee'><button class="btn btn-primary"(click)='updateEmployee()' >Update Employee</button></a>
+  </div>
+</div>
+  <!-- <button class="btn btn-success" data-toggle="modal" data-target="#exampleModal">Add Employee</button> -->
+</div>
+  </div>
+
+  <br>
+  <div>
+  </div>
+</div>
+<router-outlet></router-outlet>  
